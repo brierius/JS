@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Cálculo da Perda</title>
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <h1>Dados da Perda</h1>
+
+    <input type="number" name="mesesAtrasados" id="mesesAtrasados" placeholder="Meses atrasados">
+    <input type="number" name="valorParcela" id="valorParcela" placeholder = "Valor da Parcelas">
+    <input type="number" name="parcelasRestantes" id="parcelasRestantes" placeholder="Parcelas restantes">
+    <input type="button" value="somar" onclick="somar()">
+   <div id="totalFinal">Resultado</div>
+
+    <script>
+        function somar() {
+            var mesesAtraso = window.document.getElementById ('mesesAtrasados')
+            var valorParcela = window.document.getElementById('valorParcela')
+            var parcelasRestantes = window.document.getElementById('parcelasRestantes')
+            var totalFinal = window.document.getElementById('totalFinal')
+
+            var mesesAtraso = Number(mesesAtraso.value)
+            var valorParcela = Number(valorParcela.value)
+            var parcelasRestantes = Number(parcelasRestantes.value)
+
+            var saldoDevedor = (valorParcela*parcelasRestantes)
+            var juros = (saldoDevedor*(mesesAtraso+2))/100
+            var totalFinal = saldoDevedor+juros
+
+            totalFinal.innerHTML = `O saldo devedor é de R$${saldoDevedor}, o total de Juros é R$${juros} e a soma do saldo devedor total é R$${totalFinal}`
+        }
+
+    </script>
+
+</body>
+</html>

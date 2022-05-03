@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio em Tempo Real</title>
+</head>
+<body>
+    <style>
+        
+
+    </style>
+    
+    <script type = "text/javascript"> 
+    function startTime()
+    {
+        var today = new Date();
+        var horas = today.getHours();
+        var minutos = today.getMinutes();
+        var segundos = today.getSeconds();
+        // adicione "0" antes do minuto quando for menor que 10
+
+        minutos = checkTime(minutos);
+        ssegundos = checkTime(segundos);
+        document.getElementById('txt').innerHTML = horas+":"+minutos+":"+segundos;
+        t = setTimeout('startTime()', 500);
+    }
+    function checkTime(i)
+    {
+        if (i<10)
+        {
+            i="0"+i;
+        }
+        return i;
+    }
+    </script>
+    <div id = "txt">
+    <script type = "text/javascript">document.write(startTime())</script>
+    </div>    
+</body>
+</html>

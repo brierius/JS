@@ -1,0 +1,40 @@
+/*
+O programa deve receber o mês da perda e o ano, o valor das parcelas e o total de parcelas.
+Em seguida deve pegar o total de parcelas faltantes e dividir por dois, arredondando para cima, este seá o mês médio.
+Após isso deve somar o mês médio ao mês da perda (mesm).
+Com o valor atual do mês da perda deve-se calcular os meses corridos entre o mês e ano da perda e o mes e ano atual.
+Este número é o valor do juros ao mês (jurosm).
+Acrescente 2% de multa (multa).
+mostre o total de juros na tela (jurosm + multa)
+*/
+<>head</>
+</head>
+<>body</>
+<h1>Cálculo da Perda</h1>
+<input type="date" id="dt1">Data 1</br>
+<input type="date" id="dt2">Data 2</br>
+<input type="number" id = "parcelasEmAtraso">Total de Parcelas em Atraso </br>
+<input type="float" id = "valorParcelas">Valor Parcelas em Atraso</br>
+<input type="text" id="result">Resultado</br>
+<input type="submit" value="calcular" onclick="calcular();">
+
+
+<script>
+function calcular(){
+var dt1 = document.getElementById("dt1").value; 
+var dt2 = document.getElementById("dt2").value; 
+
+var data1 = new Date(dt1); 
+var data2 = new Date(new Date(dt2));
+var total = (data2.getFullYear() - data1.getFullYear())*12 + (data2.getMonth() - data1.getMonth());
+
+//var mesMedio = total/2
+//mesMedio = Math.round();
+
+document.getElementById("result").value = total;
+//document.getElementById("mesMedio").value = mesMedio;
+
+}
+
+</script>
+</body>
